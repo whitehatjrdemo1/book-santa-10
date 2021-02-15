@@ -1,34 +1,53 @@
-import React from "react";
-import { createDrawerNavigator } from "react-navigation-drawer";
-import { AppTabNavigator } from "./AppTabNavigator";
-import CustomSideBarMenu from "./CustomSideBarMenu";
-import MyDonationScreen from "../screens/MyDonations";
-import SettingScreen from "../screens/SettingScreen";
-import NotificationScreen from "../screens/NotificationsScreen";
-import MyReceivedBooksScreen from "../screens/ReceivedBooksScreen";
+import React from 'react';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+import { AppTabNavigator } from './AppTabNavigator'
+import CustomSideBarMenu  from './CustomSideBarMenu';
+import MyDonationScreen from '../screens/MyDonationScreen';
+import NotificationScreen from '../screens/NotificationScreen';
+import SettingScreen from '../screens/SettingScreen';
+import MyReceivedBooksScreen from '../screens/MyReceivedBooksScreen';
 
-export const AppDrawerNavigator = createDrawerNavigator(
-  {
-    Home: {
-      screen: AppTabNavigator,
+import {Icon} from 'react-native-elements';
+
+export const AppDrawerNavigator = createDrawerNavigator({
+  Home : {
+    screen : AppTabNavigator,
+    navigationOptions:{
+      drawerIcon : <Icon name="home" type ="fontawesome5" />
+    }
     },
-    MyDonations: {
-      screen: MyDonationScreen,
-    },
-    Setting: {
-      screen: SettingScreen,
-    },
-    Notification: {
-      screen: NotificationScreen,
-    },
-    ReceivedBooks: {
-      screen: MyReceivedBooksScreen,
-    },
+  MyDonations : {
+    screen : MyDonationScreen,
+    navigationOptions:{
+      drawerIcon : <Icon name="gift" type ="font-awesome" />,
+      drawerLabel : "My Donations"
+    }
   },
-  {
-    contentComponent: CustomSideBarMenu,
+  Notification : {
+    screen : NotificationScreen,
+    navigationOptions:{
+      drawerIcon : <Icon name="bell" type ="font-awesome" />,
+      drawerLabel : "Notifications"
+    }
   },
-  {
-    initialRouteName: "Home",
+  MyReceivedBooks :{
+    screen: MyReceivedBooksScreen,
+    navigationOptions:{
+      drawerIcon : <Icon name="gift" type ="font-awesome" />,
+      drawerLabel : "My Received Books"
+    }
+  },
+  Setting : {
+    screen : SettingScreen,
+    navigationOptions:{
+      drawerIcon : <Icon name="settings" type ="fontawesome5" />,
+      drawerLabel : "Settings"
+    }
   }
-);
+},
+  {
+    contentComponent:CustomSideBarMenu
+  },
+  {
+    initialRouteName : 'Home'
+  })

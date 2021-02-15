@@ -1,35 +1,23 @@
-import React, { Component } from "react";
-import { Text, FlatList, View, Image } from "react-native";
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import { createSwitchNavigator } from "react-navigation";
-import DonateScreen from "../screens/DonateScreen";
-import  { AppStackNavigator } from "./AppStackNavigator";
-import RequestScreen from "../screens/RequestScreen";
+import React from 'react';
+import { Image } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { AppStackNavigator } from './AppStackNavigator'
+import BookRequestScreen from '../screens/BookRequestScreen';
 
 
 export const AppTabNavigator = createBottomTabNavigator({
-  DonateScreen: {
+  DonateBooks : {
     screen: AppStackNavigator,
-    navigationOptions: {
-      tabBarIcon: (
-        <Image
-          source={require("../assets/request-book.png")}
-          style={{ width: 20, height: 20 }}
-        />
-      ),
-      tabBarLabel: "Donate Books",
-    },
+    navigationOptions :{
+      tabBarIcon : <Image source={require("../assets/request-list.png")} style={{width:20, height:20}}/>,
+      tabBarLabel : "Donate Books",
+    }
   },
-  RequestScreen: {
-    screen: RequestScreen,
-    navigationOptions: {
-      tabBarIcon: (
-        <Image
-          source={require("../assets/request-list.png")}
-          style={{ width: 20, height: 20 }}
-        />
-      ),
-      tabBarLabel: "Request Books",
-    },
-  },
+  BookRequest: {
+    screen: BookRequestScreen,
+    navigationOptions :{
+      tabBarIcon : <Image source={require("../assets/request-book.png")} style={{width:20, height:20}}/>,
+      tabBarLabel : "Book Request",
+    }
+  }
 });
